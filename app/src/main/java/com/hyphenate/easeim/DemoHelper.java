@@ -68,6 +68,7 @@ import com.hyphenate.easeui.delegate.EaseVoiceAdapterDelegate;
 import com.hyphenate.easeui.domain.EaseAvatarOptions;
 import com.hyphenate.easeui.domain.EaseEmojicon;
 import com.hyphenate.easeui.domain.EaseEmojiconGroupEntity;
+import com.hyphenate.easeui.domain.EaseReactionOptions;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.manager.EaseMessageTypeSetManager;
 import com.hyphenate.easeui.model.EaseEvent;
@@ -374,7 +375,8 @@ public class DemoHelper {
                         return getUserInfo(username);
                     }
 
-                });
+                })
+                .setReactionOptions(getReactionOptions());
     }
 
     //Translation Manager 初始化
@@ -392,6 +394,16 @@ public class DemoHelper {
         EaseAvatarOptions avatarOptions = new EaseAvatarOptions();
         avatarOptions.setAvatarShape(1);
         return avatarOptions;
+    }
+
+    /**
+     * Reaction Configuration
+     * @return EaseReactionOptions
+     */
+    private EaseReactionOptions getReactionOptions() {
+        EaseReactionOptions reactionOptions = new EaseReactionOptions();
+        reactionOptions.setOpen(true);
+        return reactionOptions;
     }
 
     public EaseUser getUserInfo(String username) {
